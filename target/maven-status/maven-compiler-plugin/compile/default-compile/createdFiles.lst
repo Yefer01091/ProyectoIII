@@ -1,0 +1,10 @@
+Web\ServletControlador.class
+modelos\Curso.class
+dominio\Usuario.class
+modelos\Estudiante.class
+datos\UsuarioDaoJDBC.class
+datos\Conexion.class
+co\edu\ucundinamarca\proyectoestudiantes\resources\JavaEE8Resource.class
+Web\Validar.class
+co\edu\ucundinamarca\proyectoestudiantes\JAXRSConfiguration.class
+datos\CursoDaoJDBC.class
