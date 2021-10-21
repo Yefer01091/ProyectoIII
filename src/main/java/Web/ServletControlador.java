@@ -6,12 +6,14 @@
 package Web;
 
 import datos.CursoDaoJDBC;
+import datos.EstudianteDaoJDBC;
 import modelos.Curso;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import modelos.Estudiante;
 
 /**
  *
@@ -27,9 +29,13 @@ public class ServletControlador extends HttpServlet {
             request.getRequestDispatcher("Principal.jsp").forward(request, response);
         }
         if (menu.equals("Estudiantes")) {
-            List<Curso> cursos = new CursoDaoJDBC().listar();
+            List<Estudiante> estudiantes = new EstudianteDaoJDBC().listar();
+            System.out.println("estudiantes"+estudiantes);
+             request.setAttribute("estudiantes", estudiantes);
             request.getRequestDispatcher("Estudiantes.jsp").forward(request, response);
         }
+        
+        
         if (menu.equals("Cursos")) {
             List<Curso> cursos = new CursoDaoJDBC().listar();
             System.out.print("cursos = " + cursos);

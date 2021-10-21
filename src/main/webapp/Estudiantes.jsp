@@ -63,25 +63,30 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">id</th>
-                            <th scope="col">Documento</th>
-                            <th scope="col">Nombres</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Contraseña</th>
-                            <th scope="col">Rol</th>
-                            <th scope="col">Estado</th>
+                            <th scope="col">sexo</th>
+                            <th scope="col">edad</th>
+                            <th scope="col">cedula</th>
+                            <th scope="col">telefono</th>
+                            <th scope="col">semestre</th>
+                            <th scope="col">idusuario</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">apellido</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="usuario" items="${usuarios}">
+                        <c:forEach var="estudiantes" items="${estudiantes}">
 
                             <tr>
-                                <th scope="row">${usuario.getId()}</th>
-                                <td>${usuario.getDocumento()}</td>
-                                <td>${usuario.getNombre()}</td>
-                                <td>${usuario.getCorreo()}</td>
-                                <td>${usuario.getPassword()}</td>
-                                <td>${usuario.getRol()}</td>
-                                <td>${usuario.getEstado()}</td>
+                                <th scope="row">${estudiantes.getId()}</th>
+                                <td>${estudiantes.getSexo()}</td>
+                                <td>${estudiantes.getEdad()}</td>
+                                <td>${estudiantes.getCedula()}</td>
+                                <td>${estudiantes.getTelefono()}</td>
+                                <td>${estudiantes.getSemestre()}</td>
+                                <td>${estudiantes.getIdusuario()}</td>
+                                <td>${estudiantes.getNombre()}</td>
+                                <td>${estudiantes.getApellido()}</td>
+                               
                                 <td>
                                     <a class="btn btn-warning" href="Controlador?menu=Empleados&accion=Cargar&id=${usuario.getId()}">Editar</a>
                                     <a class="btn btn-danger" href="Controlador?menu=Empleados&accion=Eliminar&id=${usuario.getId()}">Eliminar</a>

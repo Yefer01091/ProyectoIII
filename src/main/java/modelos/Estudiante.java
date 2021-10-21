@@ -111,16 +111,19 @@ public class Estudiante {
         this.id = id;
     }
 
-    public Estudiante(int id, String sexo, int edad, String telefono, String semestre, int idusuario, String nombre, String apellido) {
+    public Estudiante(int id, String sexo, int edad, String cedula, String telefono, String semestre, int idusuario, String nombre, String apellido) {
         this.id = id;
         this.sexo = sexo;
         this.edad = edad;
+        this.cedula = cedula;
         this.telefono = telefono;
         this.semestre = semestre;
         this.idusuario = idusuario;
         this.nombre = nombre;
         this.apellido = apellido;
     }
+
+ 
 
     @Override
     public String toString() {

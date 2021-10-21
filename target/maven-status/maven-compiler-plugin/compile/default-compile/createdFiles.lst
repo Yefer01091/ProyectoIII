@@ -1,5 +1,6 @@
 Web\ServletControlador.class
 modelos\Curso.class
+datos\EstudianteDaoJDBC.class
 dominio\Usuario.class
 modelos\Estudiante.class
 datos\UsuarioDaoJDBC.class
