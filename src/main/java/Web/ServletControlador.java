@@ -26,6 +26,10 @@ public class ServletControlador extends HttpServlet {
         if (menu.equals("Principal")) {
             request.getRequestDispatcher("Principal.jsp").forward(request, response);
         }
+        if (menu.equals("Estudiantes")) {
+            List<Curso> cursos = new CursoDaoJDBC().listar();
+            request.getRequestDispatcher("Estudiantes.jsp").forward(request, response);
+        }
         if (menu.equals("Cursos")) {
             List<Curso> cursos = new CursoDaoJDBC().listar();
             System.out.print("cursos = " + cursos);
