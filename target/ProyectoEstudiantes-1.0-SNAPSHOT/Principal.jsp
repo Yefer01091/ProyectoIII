@@ -33,47 +33,7 @@
 
                 </ul>
                 <div class="btn-group">
-                    <li class="pull-right"></li>
-                      <li class="pull-right"></li>
-                        <li class="pull-right"></li>
-                          <li class="pull-right"></li>
-                             <li class="pull-right"></li>
-                      <li class="pull-right"></li>
-                        <li class="pull-right"></li>
-                          <li class="pull-right"></li>
-                             <li class="pull-right"></li>
-                      <li class="pull-right"></li>
-                        <li class="pull-right"></li>
-                          <li class="pull-right"></li>
-                             <li class="pull-right"></li>
-                      <li class="pull-right"></li>
-                        <li class="pull-right"></li>
-                          <li class="pull-right"></li>
-                             <li class="pull-right"></li>
-                      <li class="pull-right"></li>
-                        <li class="pull-right"></li>
-                          <li class="pull-right"></li>
-                             <li class="pull-right"></li>
-                      <li class="pull-right"></li>
-                        <li class="pull-right"></li>
-                          <li class="pull-right"></li>
-                             <li class="pull-right"></li>
-                      <li class="pull-right"></li>
-                        <li class="pull-right"></li>
-                          <li class="pull-right"></li>
-                             <li class="pull-right"></li>
-                      <li class="pull-right"></li>
-                        <li class="pull-right"></li>
-                          <li class="pull-right"></li>
-                             <li class="pull-right"></li>
-                      <li class="pull-right"></li>
-                        <li class="pull-right"></li>
-                          <li class="pull-right"></li>
-                          
-                          <li class="pull-right"></li>
-                      <li class="pull-right"></li>
-                        <li class="pull-right"></li>
-                          <li class="pull-right"></li>
+                  
                     <button type="button"  class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         ${usuario.getCorreo()}
                     </button>

@@ -30,18 +30,12 @@ public class ServletControlador extends HttpServlet {
         }
         if (menu.equals("Estudiantes")) {
             List<Estudiante> estudiantes = new EstudianteDaoJDBC().listar();
-            System.out.println("estudiantes"+estudiantes);
-             request.setAttribute("estudiantes", estudiantes);
+            request.setAttribute("estudiantes", estudiantes);
             request.getRequestDispatcher("Estudiantes.jsp").forward(request, response);
         }
-        
-        
+
         if (menu.equals("Cursos")) {
-            List<Curso> cursos = new CursoDaoJDBC().listar();
-            System.out.print("cursos = " + cursos);
-            request.setAttribute("totalCursos", cursos.size());
-            request.setAttribute("cursos", cursos);
-            request.getRequestDispatcher("cursos.jsp").forward(request, response);
+            this.cargarcurso(request, response);
 
         }
 
@@ -56,12 +50,35 @@ public class ServletControlador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       processRequest(request, response);
     }
 
     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void insertarcurso(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String nombre = request.getParameter("nombre");
+        String  profesor = request.getParameter("docente");
+        String jornada = request.getParameter("jornada");
+        String codigostring = request.getParameter("codigo");
+        int codigo=Integer.parseInt(codigostring);
+
+        Curso curso=new Curso(nombre, profesor,jornada,codigo);
+        int cantidadregistros=new CursoDaoJDBC().insertar(curso);
+        this.cargarcurso(request, response);
+        
+    }
+
+    private void cargarcurso(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Curso> cursos = new CursoDaoJDBC().listar();
+        System.out.print("cursos = " + cursos);
+        request.setAttribute("totalCursos", cursos.size());
+        request.setAttribute("cursos", cursos);
+        request.getRequestDispatcher("cursos.jsp").forward(request, response);
+    }
 
 }
