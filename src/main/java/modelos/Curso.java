@@ -73,7 +73,7 @@ public class Curso {
         this.codigo = codigo;
     }
 
-    public Curso(int id, String profesor, String nombre, String jornada, int codigo) {
+    public Curso(int id, String nombre,String profesor,  String jornada, int codigo) {
         this.id = id;
         this.profesor = profesor;
         this.nombre = nombre;

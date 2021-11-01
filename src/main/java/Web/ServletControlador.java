@@ -25,6 +25,7 @@ public class ServletControlador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String menu = request.getParameter("menu");
+        String accion = request.getParameter("accion");
         if (menu.equals("Principal")) {
             request.getRequestDispatcher("Principal.jsp").forward(request, response);
         }
@@ -36,6 +37,12 @@ public class ServletControlador extends HttpServlet {
 
         if (menu.equals("Cursos")) {
             this.cargarcurso(request, response);
+
+            if (accion.equals("Agregarcurso")) {
+                this.insertarcurso(request, response);                
+               
+
+            }
 
         }
 
@@ -50,7 +57,8 @@ public class ServletControlador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       processRequest(request, response);
+
+        processRequest(request, response);
     }
 
     @Override
@@ -61,15 +69,15 @@ public class ServletControlador extends HttpServlet {
     private void insertarcurso(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nombre = request.getParameter("nombre");
-        String  profesor = request.getParameter("docente");
+        String profesor = request.getParameter("docente");
         String jornada = request.getParameter("jornada");
         String codigostring = request.getParameter("codigo");
-        int codigo=Integer.parseInt(codigostring);
+        int codigo = Integer.parseInt(codigostring);
 
-        Curso curso=new Curso(nombre, profesor,jornada,codigo);
-        int cantidadregistros=new CursoDaoJDBC().insertar(curso);
+        Curso curso = new Curso(nombre, profesor, jornada, codigo);
+        int cantidadregistros = new CursoDaoJDBC().insertar(curso);
         this.cargarcurso(request, response);
-        
+
     }
 
     private void cargarcurso(HttpServletRequest request, HttpServletResponse response)

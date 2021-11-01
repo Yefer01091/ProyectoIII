@@ -7,7 +7,7 @@
                     <span>&times;</span>
                 </button>
             </div>
-            <form action=" ${pageContext.request.contextPath}/ServletControlador?accion=insertarcurso" method="POST" class="was-validated">
+            <form action=" ${pageContext.request.contextPath}/ServletControlador?menu=Cursos" method="POST" class="was-validated">
                 <div class="modal-body">
 
 
@@ -35,7 +35,7 @@
 
                 </div>
                 <div class="model-footer">
-                    <button class="btn-primary" type="submit" >Guardar</button>
+                    <button class="btn-primary" type="submit" name="accion" value="Agregarcurso" >Guardar</button>
 
                 </div>
 
