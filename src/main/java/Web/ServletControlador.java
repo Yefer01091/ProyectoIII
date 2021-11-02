@@ -30,9 +30,8 @@ public class ServletControlador extends HttpServlet {
             request.getRequestDispatcher("Principal.jsp").forward(request, response);
         }
         if (menu.equals("Estudiantes")) {
-            List<Estudiante> estudiantes = new EstudianteDaoJDBC().listar();
-            request.setAttribute("estudiantes", estudiantes);
-            request.getRequestDispatcher("Estudiantes.jsp").forward(request, response);
+            this.cargarestudiantes(request, response);
+           
         }
 
         if (menu.equals("Cursos")) {
@@ -88,5 +87,13 @@ public class ServletControlador extends HttpServlet {
         request.setAttribute("cursos", cursos);
         request.getRequestDispatcher("cursos.jsp").forward(request, response);
     }
+     private void cargarestudiantes(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Estudiante> estudiantes = new EstudianteDaoJDBC().listar();
+            request.setAttribute("estudiantes", estudiantes);
+             request.setAttribute("totalEstudiantes", estudiantes.size());            
+            request.getRequestDispatcher("Estudiantes.jsp").forward(request, response);
+    }
+
 
 }

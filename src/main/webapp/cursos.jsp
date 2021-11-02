@@ -15,7 +15,20 @@
         <!--cabecera-->
        
             <!--boton navegacion-->
-        <jsp:include page="WEB-INF/paginas/comunes/navegacion.jsp"></jsp:include>  
+        <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <a href=" # "class="btn btn-primary btn-block" 
+                   data-bs-toggle="modal" data-bs-target="#agregarCursoModal">
+                    <i class ="fas fa-plus"></i> Agregar Curso
+                </a>
+                
+                
+            </div>
+        </div>
+        
+
+    </div> 
         <jsp:include page="WEB-INF/curso/listadoCursos.jsp"></jsp:include>  
         
 

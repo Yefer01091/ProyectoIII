@@ -2,7 +2,7 @@
             <div class="container">
                 <div class="col-md-6">
                     <h1>
-                        <i class="fas fa-cog"></i> Control de Estudiantes</h1>
+                        <i class="fas fa-cog"></i> Control </h1>
                 </div>
             </div>
             

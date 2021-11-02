@@ -1,109 +1,43 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!doctype html>
-<html lang="en">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
     <head>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-        <title>Hello, world!</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/39cd639674.js" crossorigin="anonymous"></script>
+        <title>Control Cursos</title>
     </head>
     <body>
+        <!--cabecera-->
+       
+            <!--boton navegacion-->
+        <div class="container">
         <div class="row">
-            <div class="card col-md-4">
-                <div class="card-body">
-                    <h5 class="card-title">ESTUDIANTES</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Registro de usuario</h6>
-                    <div>
-                        <form action="Controlador?menu=Empleados" method="POST">
-                            <div class="form-group">
-                                <label>Documento</label>
-                                <input type="number" class="form-control" name="txtdocumento" value="${usuarioSeleccionado.getDocumento()}">
-                                <small class="form-text text-muted">Ingrese El No de documento sin espacios ni caracteres especiales</small>
-                            </div>
-                            <div class="form-group">
-                                <label>Nombre</label>
-                                <input type="text" class="form-control" name="txtnombre" value="${usuarioSeleccionado.getNombre()}">
-                            </div>
-                            <div class="form-group">
-                                <label>Correo</label>
-                                <input type="text" class="form-control" name="txtcorreo" value="${usuarioSeleccionado.getCorreo()}">
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="text" class="form-control" name="txtpassword" value="${usuarioSeleccionado.getPassword()}">
-                            </div>
-                            <div class="form-group">
-                                <label>Rol</label>
-                                <select class="form-control form-control-sm" name="txtrol">
-                                    <option>Administrador</option>
-                                    <option>usuario</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Estado</label>
-                                <select class="form-control form-control-sm" name="txtestado">
-                                    <option>Activo</option>
-                                    <option>Inactivo</option>
-                                </select>
-                            </div>
-
-                            <input type="submit" class="btn btn-primary" name="accion" value="Agregar" >
-                            <input type="submit" class="btn btn-success" name="accion" value="Actualizar" >
-                        </form>
-                    </div>
-                </div>
+            <div class="col-md-3">
+                <a href=" # "class="btn btn-primary btn-block" 
+                   data-bs-toggle="modal" data-bs-target="#agregarEstudianteModal">
+                    <i class ="fas fa-plus"></i> Agregar Curso
+                </a>
+                
+                
             </div>
+        </div>
+        
 
-            <div class="col-md-8">
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">sexo</th>
-                            <th scope="col">edad</th>
-                            <th scope="col">cedula</th>
-                            <th scope="col">telefono</th>
-                            <th scope="col">semestre</th>
-                            <th scope="col">idusuario</th>
-                            <th scope="col">nombre</th>
-                            <th scope="col">apellido</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="estudiantes" items="${estudiantes}">
-
-                            <tr>
-                                <th scope="row">${estudiantes.getId()}</th>
-                                <td>${estudiantes.getSexo()}</td>
-                                <td>${estudiantes.getEdad()}</td>
-                                <td>${estudiantes.getCedula()}</td>
-                                <td>${estudiantes.getTelefono()}</td>
-                                <td>${estudiantes.getSemestre()}</td>
-                                <td>${estudiantes.getIdusuario()}</td>
-                                <td>${estudiantes.getNombre()}</td>
-                                <td>${estudiantes.getApellido()}</td>
-                               
-                                <td>
-                                    <a class="btn btn-warning" href="Controlador?menu=Empleados&accion=Cargar&id=${usuario.getId()}">Editar</a>
-                                    <a class="btn btn-danger" href="Controlador?menu=Empleados&accion=Eliminar&id=${usuario.getId()}">Eliminar</a>
-                                </td>
-
-                            </tr>
-                        </c:forEach>
+    </div> 
+        <jsp:include page="WEB-INF/estudiante/listadoEstudiantes.jsp"></jsp:include>  
+        
 
 
-                    </tbody>
-                </table>
-            </div>
 
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+       
     </body>
 </html>
