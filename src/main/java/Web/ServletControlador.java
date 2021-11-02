@@ -26,23 +26,28 @@ public class ServletControlador extends HttpServlet {
 
         String menu = request.getParameter("menu");
         String accion = request.getParameter("accion");
+        
         if (menu.equals("Principal")) {
             request.getRequestDispatcher("Principal.jsp").forward(request, response);
         }
+        
+        
         if (menu.equals("Estudiantes")) {
             this.cargarestudiantes(request, response);
+            
+            if(accion.equals("Agregarestudiante")){
+            this.insertarestudiante(request, response);
+            }
            
         }
 
+        
         if (menu.equals("Cursos")) {
             this.cargarcurso(request, response);
 
             if (accion.equals("Agregarcurso")) {
-                this.insertarcurso(request, response);                
-               
-
+                this.insertarcurso(request, response); 
             }
-
         }
 
     }
@@ -76,6 +81,25 @@ public class ServletControlador extends HttpServlet {
         Curso curso = new Curso(nombre, profesor, jornada, codigo);
         int cantidadregistros = new CursoDaoJDBC().insertar(curso);
         this.cargarcurso(request, response);
+
+    }
+     private void insertarestudiante(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String sexo = request.getParameter("sexo");
+        String edadstring = request.getParameter("edad");
+        String cedula = request.getParameter("cedula");
+        String telefono = request.getParameter("telefono");
+         String semestre = request.getParameter("semestre");
+         String idusuariotring = request.getParameter("idusuario");
+          String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+         
+        int edad = Integer.parseInt(edadstring);
+        int idusuario = Integer.parseInt(idusuariotring);
+
+        Estudiante estudiante = new Estudiante(sexo, edad, cedula, telefono,semestre,idusuario,nombre,apellido);
+        int cantidadregistros = new EstudianteDaoJDBC().insertar(estudiante);
+        this.cargarestudiantes(request, response);
 
     }
 

@@ -65,5 +65,37 @@ public class EstudianteDaoJDBC {
             return  estudiantes;
     
     }
+    
+      public int insertar (Estudiante estudiante){
+           Connection  conn = null;
+            PreparedStatement stmt = null;
+            int rows=0;
+            
+            
+            try {
+            conn=Conexion.getConnection();
+            stmt=conn.prepareStatement(sql_insert);
+            stmt.setString(1,estudiante.getSexo());
+            stmt.setInt(2, estudiante.getEdad());
+            stmt.setString(3,estudiante.getCedula() );
+            stmt.setString(4, estudiante.getTelefono());
+            stmt.setString(5,estudiante.getSemestre());
+            stmt.setInt(6, estudiante.getIdusuario());
+            stmt.setString(7,estudiante.getNombre() );
+            stmt.setString(8, estudiante.getApellido());
+           rows=stmt.executeUpdate();
+            
+           
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        }
+            finally{
+            Conexion.close(stmt);
+            Conexion.close(conn);
+            
+            }
+         return rows;
+    }
+    
 
 }
