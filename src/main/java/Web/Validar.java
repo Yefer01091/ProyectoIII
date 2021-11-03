@@ -66,11 +66,25 @@ public class Validar extends HttpServlet {
                 
 
             }else{
+                 request.getSession().invalidate();
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
             
 
-        }else{
+        }
+        if (accion.equalsIgnoreCase("Salir")) {
+           /*eliminara el cache para evitar que dandole a atras al navegador  recupere la session */
+             response.setHeader ("Clear-Site-Data", "\"cache\"");
+             /*invalida la session*/
+            request.getSession().invalidate();
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+            
+            
+
+        }
+        
+        else{ 
+            
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
