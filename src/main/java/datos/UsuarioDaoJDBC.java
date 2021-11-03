@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import dominio.Usuario;
+import modelos.encriptar;
 
 /**
  * 
@@ -173,6 +174,8 @@ public class UsuarioDaoJDBC {
  
   public Usuario Validar(String correo, String contrasena) {
        Usuario usuario = new Usuario();
+       encriptar contraseñaencriptada= new encriptar(); 
+        System.out.println("la contraseña es"+contraseñaencriptada.ecnode(contrasena));
        
             Connection  conn = null;
             PreparedStatement stmt = null;
@@ -181,8 +184,8 @@ public class UsuarioDaoJDBC {
             try {
             conn=Conexion.getConnection();
             stmt=conn.prepareStatement(sql_consulta);
-            stmt.setString(1, correo);
-            stmt.setString(2, contrasena);
+            stmt.setString(1, correo);                    
+            stmt.setString(2,contraseñaencriptada.ecnode(contrasena));
             rs =stmt.executeQuery();
             rs.next();
             do {

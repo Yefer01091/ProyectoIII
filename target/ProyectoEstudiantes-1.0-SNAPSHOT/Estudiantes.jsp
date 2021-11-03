@@ -19,7 +19,7 @@
             <div class="col-md-3">
                 <a href=" # "class="btn btn-primary btn-block" 
                    data-bs-toggle="modal" data-bs-target="#agregarEstudianteModal">
-                    <i class ="fas fa-plus"></i> Agregar Curso
+                    <i class ="fas fa-plus"></i> Agregar Estudiante
                 </a>
                 
                 

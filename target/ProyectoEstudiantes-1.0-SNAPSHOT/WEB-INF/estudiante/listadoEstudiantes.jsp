@@ -57,7 +57,7 @@
                     <div class="card-body">                   
                         <h3>Total de estudiantes </h3>
                         <h4 class="display-4" value="${totalEstudiantes}">
-                            <i class="fas fa-book"></i> ${totalEstudiantes}                          
+                            <i class="fas fa-user-graduate"></i> ${totalEstudiantes}                          
 
                         </h4>
                     </div>
