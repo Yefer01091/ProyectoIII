@@ -24,9 +24,12 @@
                         <form method="POST" action="Validar">
                             <div class="form-group">
                                 <label>Correo</label>
+                               
                                 <input type="text" class="form-control" name="txtusuario">
-                                <small id="emailHelp" class="form-text text-muted">Ingrese su correo electronico</small>
+                                <small id="emailHelp" class="form-text text-muted">Ingrese su correo electronico</small>                                
+                                
                             </div>
+                          
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Contraseña</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1" name="txtpassword">
@@ -37,8 +40,10 @@
 
                                 </div>
 
-
+                            <label style="color: red">${error}</label>
                             </div>
+                           
+                              
                             <button type="submit" class="btn btn-primary" name="accion" value="Ingresar">Ingresar</button>
                         </form>
                     </div>
