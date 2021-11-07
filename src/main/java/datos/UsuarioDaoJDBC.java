@@ -175,7 +175,7 @@ public class UsuarioDaoJDBC {
   public Usuario Validar(String correo, String contrasena) {
        Usuario usuario = new Usuario();
        encriptar contraseñaencriptada= new encriptar(); 
-        System.out.println("la contraseña es"+contraseñaencriptada.ecnode(contrasena));
+        //System.out.println("la contraseña es"+contraseñaencriptada.ecnode(contrasena));
        
             Connection  conn = null;
             PreparedStatement stmt = null;

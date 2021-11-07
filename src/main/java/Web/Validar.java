@@ -57,10 +57,14 @@ public class Validar extends HttpServlet {
         if (accion.equalsIgnoreCase("Ingresar")) {
             String correo= request.getParameter("txtusuario");
             String contrasena = request.getParameter("txtpassword");
+            //aca estoy guardando la respuesta del captcha
+            String gRecaptchaResponse = request.getParameter("g-recaptcha-response");          
+            
             usuario = usuarioDAO.Validar(correo,contrasena);
-            System.out.print("dato"+usuario.getCorreo());
-            if(usuario.getCorreo()!= null){
-                System.out.print("dato1"+usuario.getCorreo());
+            //valido que el captchaeste resuelto 
+            //hay que ajuistarlo porque no verifico que este bien solo que lo  lleno 
+            if((usuario.getCorreo()!= null) && (!gRecaptchaResponse.isEmpty())){                 
+               
                 request.setAttribute("usuario", usuario);
                 request.getRequestDispatcher("ServletControlador?menu=Principal").forward(request, response);
                 
