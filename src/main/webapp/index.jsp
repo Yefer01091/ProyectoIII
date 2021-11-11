@@ -12,6 +12,7 @@
         <script src="https://kit.fontawesome.com/39cd639674.js" crossorigin="anonymous"></script>
         <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
         <title>Hello, world!</title>
+
     </head>
     <body>
         <br>
@@ -24,37 +25,50 @@
                         <form method="POST" action="Validar">
                             <div class="form-group">
                                 <label>Correo</label>
-                               
-                                <input type="text" class="form-control" name="txtusuario">
+
+                                <input type="email" class="form-control" name="txtusuario">
                                 <small id="emailHelp" class="form-text text-muted">Ingrese su correo electronico</small>                                
-                                
+
                             </div>
-                          
+
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Contraseña</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1" name="txtpassword">
                             </div>
                             <br>
-                            <div class="mb-4" >
-                                <div  class="h-captcha" data-sitekey="01a09185-6d16-44d1-84ae-c0fc29380766" name="t">
+                            <div class="mb-1" >
+                                <div  class="h-captcha" data-sitekey="01a09185-6d16-44d1-84ae-c0fc29380766" >
 
                                 </div>
 
-                            <label style="color: red">${error}</label>
+                                <label style="color: red">${error}</label>
                             </div>
-                           
-                              
                             <button type="submit" class="btn btn-primary" name="accion" value="Ingresar">Ingresar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>  
-        </div>
+                            <br>
+                          
+                            <div>
+                                <a href=" # "class="nav-link"
+                                   data-bs-toggle="modal" data-bs-target="#recuperarContrasenaModal">
+                                    <i ></i> Olvido su contraseña
+                                </a>                                 
+                            </div>
+                    </div> 
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    </body>
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+   
+    
+   
+
+</body>
+<jsp:include page="/WEB-INF/usuario/recuperarContrasena.jsp" flush="true"></jsp:include>
 </html>

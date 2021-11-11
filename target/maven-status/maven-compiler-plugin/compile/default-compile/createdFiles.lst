@@ -1,6 +1,6 @@
-dominio\Usuario.class
 modelos\encriptar.class
 modelos\Estudiante.class
+modelos\Usuario.class
 datos\UsuarioDaoJDBC.class
 Web\Validar.class
 co\edu\ucundinamarca\proyectoestudiantes\JAXRSConfiguration.class

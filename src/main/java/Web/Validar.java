@@ -6,7 +6,6 @@
 package Web;
 
 import datos.UsuarioDaoJDBC;
-import dominio.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Usuario;
 
 @WebServlet(name = "Validar", urlPatterns = {"/Validar"})
 public class Validar extends HttpServlet {
@@ -94,6 +94,13 @@ public class Validar extends HttpServlet {
 
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
+         if (accion.equalsIgnoreCase("Recuperarcontrasena")) {
+             System.out.println("entro a recuperar contraseña");
+         }
+           
+           
+
+      
 
     }
 

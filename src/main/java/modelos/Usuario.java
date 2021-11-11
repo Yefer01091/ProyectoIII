@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 
-package dominio;
 
+package modelos;
 /**
  * 
  * @author Sergio Enrique Jair Gonzalez Arcos>

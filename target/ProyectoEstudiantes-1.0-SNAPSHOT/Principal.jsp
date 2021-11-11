@@ -19,34 +19,39 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="ServletControlador?menu=Estudiantes" target="miContenedor">Estudiantes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ServletControlador?menu=Cursos" target="miContenedor">Cursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ServletControlador?menu=Usuarios" target="miContenedor">Usuarios</a>
-                    </li>
+                <div class="col-10">
+                    <ul class="navbar-nav mr-auto">
 
-                </ul>
-                <div class="btn-group">
-                  
-                    <button type="button"  class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ${usuario.getCorreo()}
-                    </button>
-                    <div class="dropdown-menu">
-                       
-                        <div class="dropdown-divider"></div>
-                        <form class="dropdown-item" method="POST" action="Validar">
-                            <button class="btn btn-danger center-block" type="submit" name="accion" value="Salir">Cerrar Sesion</button>
-                        </form>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ServletControlador?menu=Estudiantes" target="miContenedor">Estudiantes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ServletControlador?menu=Cursos" target="miContenedor">Cursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ServletControlador?menu=Usuarios" target="miContenedor">Usuarios</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-2">
+                    <div class="btn-group">
+
+                        <button type="button"  class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ${usuario.getCorreo()}
+                        </button>
+                        <div class="dropdown-menu">
+
+                            <div class="dropdown-divider"></div>
+                            <form class="dropdown-item" method="POST" action="Validar">
+                                <button class="btn btn-danger center-block" type="submit" name="accion" value="Salir">Cerrar Sesion</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
-                
+
             </div>
         </nav>
         <jsp:include page="WEB-INF/paginas/comunes/cabecera.jsp"></jsp:include>
