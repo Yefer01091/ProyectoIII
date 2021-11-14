@@ -211,7 +211,7 @@ public class UsuarioDaoJDBC {
             do {
                 usuario.setId(rs.getInt("id"));
                 usuario.setCorreo(rs.getString("correo"));
-                usuario.setContrasena("contrasena");
+                usuario.setContrasena(rs.getString("contrasena"));
 
             } while (rs.next());
 
@@ -224,9 +224,7 @@ public class UsuarioDaoJDBC {
 
         }
         //si hay un usuario  desencriptamos la contraseña
-        if (usuario != null) {
-            usuario.setCorreo(contraseñaencriptada.deecnode(usuario.getContrasena()));
-        }
+       usuario.setContrasena(contraseñaencriptada.deecnode(usuario.getContrasena()));
         return usuario;
 
     }

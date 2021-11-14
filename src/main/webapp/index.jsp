@@ -44,6 +44,7 @@
                                 <label style="color: red">${error}</label>
                             </div>
                             <button type="submit" class="btn btn-primary" name="accion" value="Ingresar">Ingresar</button>
+                             <button type="submit" class="btn btn-primary" name="accion" value="recuperar">Recuperar Contraseña</button>
                             <br>
                           
                             <div>

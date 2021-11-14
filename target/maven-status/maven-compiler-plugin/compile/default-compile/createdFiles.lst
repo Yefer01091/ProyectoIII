@@ -1,6 +1,7 @@
 modelos\encriptar.class
 modelos\Estudiante.class
 modelos\Usuario.class
+modelos\Correo$1.class
 datos\UsuarioDaoJDBC.class
 Web\Validar.class
 co\edu\ucundinamarca\proyectoestudiantes\JAXRSConfiguration.class
@@ -9,4 +10,5 @@ modelos\Curso.class
 datos\EstudianteDaoJDBC.class
 datos\Conexion.class
 co\edu\ucundinamarca\proyectoestudiantes\resources\JavaEE8Resource.class
+modelos\Correo.class
 datos\CursoDaoJDBC.class

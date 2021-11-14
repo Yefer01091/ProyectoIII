@@ -13,13 +13,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Correo;
 import modelos.Usuario;
 
 @WebServlet(name = "Validar", urlPatterns = {"/Validar"})
 public class Validar extends HttpServlet {
 
     String error = "  ";
+    String mensaje = "  ";
     Usuario usuario = new Usuario();
+    
+
     UsuarioDaoJDBC usuarioDAO = new UsuarioDaoJDBC();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -90,22 +94,41 @@ public class Validar extends HttpServlet {
             request.getSession().invalidate();
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
-        } else {
+        }
+        if (accion.equalsIgnoreCase("recuperar")) {
+            Usuario usuario2 = new Usuario();
+             UsuarioDaoJDBC usuarioDAO2 = new UsuarioDaoJDBC();
+            String correorecuperar = request.getParameter("txtusuario");
+            usuario2 = usuarioDAO2.RecuperarContrasena(correorecuperar);
+            System.out.println("la contraseña es "+usuario2.getContrasena());
+            System.out.println(usuario2.getContrasena());
+             
+            if (usuario2 != null) {
+                  System.out.println("entra al if ");
+               Correo corre=new Correo();
+               corre.enviar(usuario2.getCorreo(), usuario2.getContrasena());
+               request.getRequestDispatcher("index.jsp").forward(request, response);          
+
+            }
+            else{
+                mensaje="correo no registrado";
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+        }
+
+       
+    
+
+    
+        else {
 
             request.getRequestDispatcher("index.jsp").forward(request, response);
-        }
-         if (accion.equalsIgnoreCase("Recuperarcontrasena")) {
-             System.out.println("entro a recuperar contraseña");
-         }
-           
-           
-
-      
-
     }
 
-    @Override
-    public String getServletInfo() {
+}
+
+@Override
+public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

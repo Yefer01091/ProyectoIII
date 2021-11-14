@@ -8,20 +8,20 @@
                 </button>
             </div>
             <div>
-            <form action=" ${pageContext.request.contextPath}/Validar?menu=Usuario" method="POST" class="was-validated">
+            <form  action=""method="POST"class="was-validated">
                 <div class="modal-body">
 
 
                     <div class="form-group">
-                        <label for="correo">Correo</label>                         
-                        <input type="text" class="form-control" name="Correo" required>
+                        <label for="correo2">Correo</label>                         
+                        <input type="text" class="form-control" name="Correo2" required>
                     </div>
-                   
+                    
 
 
                 </div>
                 <div class="model-footer">
-                    <button class="btn-primary" type="submit" name="accion" value="Recuperarcontrasena" >Recuperar</button>
+                    <button class="btn-primary" type="submit" name="accion" value="Recuperar" >Recuperar</button>
 
                 </div>
 
