@@ -11,11 +11,12 @@ package modelos;
  * @author Sergio Enrique Jair Gonzalez Arcos>
  */
 public class Curso {
-   private int id;
-   private String profesor;
-   private String nombre;
+
+    private String profesor;  
+    private String nombre;  
    private String jornada;
    private int codigo;
+      private int id;
 
     public Curso() {
     }
@@ -73,7 +74,7 @@ public class Curso {
         this.codigo = codigo;
     }
 
-    public Curso(int id, String nombre,String profesor,  String jornada, int codigo) {
+    public Curso( String profesor,String nombre,  String jornada, int codigo ,int id) {
         this.id = id;
         this.profesor = profesor;
         this.nombre = nombre;

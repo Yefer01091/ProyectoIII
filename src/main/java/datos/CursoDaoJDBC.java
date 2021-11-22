@@ -14,9 +14,9 @@ public class CursoDaoJDBC {
     private  static  final  String sql_select="SELECT * FROM  curso";
     private  static  final  String sql_select_by_id="SELECT * FROM  curso where id = ? ";
     private  static  final  String sql_insert="INSERT INTO   curso( profesor , nombre ,jornada,codigo)  VALUES ( ?,?,?,?)";
-    private  static  final  String sql_update="UPDATE  curso set(profesor = ?,nombre = ?,jornada = ? , codigo = ?  ) where id = ? ";
+    private  static  final  String sql_update="UPDATE  curso set profesor = ?,nombre = ?,jornada = ? , codigo = ?  where id = ? ";
     private  static  final  String sql_delete ="DELETE FROM curso  where id = ? ";
-    
+
     public List<Curso> listar () {
         
             Connection  conn = null;
@@ -32,12 +32,12 @@ public class CursoDaoJDBC {
             
             while(rs.next()){
             int id =rs.getInt("id");
-            String profesor = rs.getString("profesor");
             String nombre = rs.getString("nombre");
+            String profesor = rs.getString("profesor");           
             String jornada = rs.getString("jornada");
             int codigo =rs.getInt("codigo");
             
-            curso =new Curso (id,profesor,nombre,jornada,codigo);
+            curso =new Curso (profesor,nombre,jornada,codigo,id);
             cursos.add(curso);
             }
         } catch (SQLException ex) {
@@ -64,18 +64,16 @@ public class CursoDaoJDBC {
             stmt=conn.prepareStatement(sql_select_by_id);
             stmt.setInt( 1, curso.getId());
             rs =stmt.executeQuery();
-            rs.absolute(1);//nos proporciona el primer registro devuelto
             
-            String profesor = rs.getString("profesor");
-            String nombre = rs.getString("nombre");
-            String jornada = rs.getString("jornada");
-            int codigo =rs.getInt("codigo");
-            curso.setProfesor(profesor);
-            curso.setNombre(nombre);
-            curso.setJornada(jornada);
-            curso.setCodigo(codigo);
             
-           
+           while(rs.next()){
+                curso.setCodigo(rs.getInt("id"));
+                curso.setNombre(rs.getString("nombre"));
+                curso.setProfesor(rs.getString("profesor"));
+                curso.setJornada(rs.getString("jornada"));
+                curso.setCodigo(rs.getInt("codigo"));
+                               
+            }
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
         }
@@ -143,7 +141,7 @@ public class CursoDaoJDBC {
          return rows;
  }
  
- public int eliminar(Curso curso){
+ public void eliminar(int id){
             Connection  conn = null;
             PreparedStatement stmt = null;
             int rows=0;
@@ -152,7 +150,7 @@ public class CursoDaoJDBC {
             try {
             conn=Conexion.getConnection();    
             stmt=conn.prepareStatement(sql_delete);         
-            stmt.setInt(1, curso.getId() );
+            stmt.setInt(1, id );
              rows=stmt.executeUpdate();
             
            
@@ -164,7 +162,7 @@ public class CursoDaoJDBC {
             Conexion.close(conn);
             
             }
-         return rows;
+         
  
  
  }

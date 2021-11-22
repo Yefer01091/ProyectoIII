@@ -7,21 +7,21 @@
                     <span>&times;</span>
                 </button>
             </div>
-            <form action=" ${pageContext.request.contextPath}/ServletControlador?menu=Cursos" method="POST" class="was-validated">
+            <form action="ServletControlador?menu=Cursos" method="POST" class="was-validated">
                 <div class="modal-body">
 
 
                     <div class="form-group">
                         <label for="nombre">Nombre</label>                         
-                        <input type="text" class="form-control" name="nombre" required>
+                        <input type="text" class="form-control" name="nombre" required  value="${cursoSeleccionado.getNombre()}">
                     </div>
                     <div class="form-group">
                         <label for="docente">Docente</label>
-                        <input type="text" class="form-control" name="docente"required>
+                        <input type="text" class="form-control" name="docente"required value="${cursoSeleccionado.getNombre()}">
                     </div>
                     <div class="form-group">
                         <label for="jornada">Jornada</label>
-                        <select class="form-control " name="jornada"required>
+                        <select class="form-control " name="jornada"required value="${cursoSeleccionado.getNombre()}">
                             <option>diurna</option>
                             <option>noche</option>
                             <option>tarde</option>
@@ -29,13 +29,17 @@
                     </div>
                     <div class="form-group">
                         <label for="codigo">Codigo</label>
-                        <input type="number" class="form-control" name="codigo"required>
+                        <input type="number" class="form-control" name="codigo"required value="${cursoSeleccionado.getNombre()}"> 
                     </div>
 
 
                 </div>
                 <div class="model-footer">
                     <button class="btn-primary" type="submit" name="accion" value="Agregarcurso" >Guardar</button>
+
+                </div>
+                 <div class="model-footer">
+                    <button class="btn-primary" type="submit" name="accion" value="editarcurso" >Guardar</button>
 
                 </div>
 

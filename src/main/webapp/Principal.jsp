@@ -27,7 +27,7 @@
                             <a class="nav-link" href="ServletControlador?menu=Estudiantes" target="miContenedor">Estudiantes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="ServletControlador?menu=Cursos" target="miContenedor">Cursos</a>
+                            <a class="nav-link" href="ServletControlador?menu=Cursos&accion=Listar" target="miContenedor">Cursos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="ServletControlador?menu=Usuarios" target="miContenedor">Usuarios</a>
